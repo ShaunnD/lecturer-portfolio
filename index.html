@@ -1,55 +1,587 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lecturer Portfolio</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mr. Ikraam Sadek | Junior Lecturer Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <h1>Lecturer Portfolio</h1>
-            <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="navbar">
+    <div class="nav-logo">IS<span class="logo-dot">.</span></div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#modules">Modules</a></li>
+      <li><a href="#achievements">Skills</a></li>
+      <li><a href="#quote">Advice</a></li>
+      <li><a href="#fun-facts">Facts</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ===== MOBILE NAV MENU ===== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#hero" class="mob-link">Home</a></li>
+      <li><a href="#about" class="mob-link">About</a></li>
+      <li><a href="#modules" class="mob-link">Modules</a></li>
+      <li><a href="#achievements" class="mob-link">Skills</a></li>
+      <li><a href="#quote" class="mob-link">Advice</a></li>
+      <li><a href="#fun-facts" class="mob-link">Facts</a></li>
+      <li><a href="#contact" class="mob-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="hero">
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="hero-content">
+      <!-- SVG AVATAR -->
+      <div class="avatar-wrapper">
+        <div class="avatar-glow-ring"></div>
+        <svg class="avatar-svg" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+          <!-- Body / Jacket -->
+          <defs>
+            <radialGradient id="skinGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#c8956c"/>
+              <stop offset="100%" stop-color="#a0714f"/>
+            </radialGradient>
+            <linearGradient id="jacketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1a1a2e"/>
+              <stop offset="100%" stop-color="#16213e"/>
+            </linearGradient>
+            <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#2d1b69"/>
+              <stop offset="100%" stop-color="#4a2080"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Shadow -->
+          <ellipse cx="100" cy="258" rx="55" ry="8" fill="rgba(0,0,0,0.3)"/>
+
+          <!-- Body -->
+          <rect x="45" y="148" width="110" height="110" rx="10" fill="url(#jacketGrad)"/>
+
+          <!-- Shirt/lapels -->
+          <polygon points="100,148 72,148 72,200 100,175" fill="url(#shirtGrad)"/>
+          <polygon points="100,148 128,148 128,200 100,175" fill="url(#shirtGrad)"/>
+
+          <!-- Tie -->
+          <polygon points="100,150 94,165 100,230 106,165" fill="#8b1a4a"/>
+
+          <!-- Arms -->
+          <rect x="20" y="148" width="30" height="90" rx="10" fill="url(#jacketGrad)"/>
+          <rect x="150" y="148" width="30" height="90" rx="10" fill="url(#jacketGrad)"/>
+
+          <!-- Hands -->
+          <ellipse cx="35" cy="242" rx="14" ry="10" fill="url(#skinGrad)"/>
+          <ellipse cx="165" cy="242" rx="14" ry="10" fill="url(#skinGrad)"/>
+
+          <!-- Neck -->
+          <rect x="87" y="130" width="26" height="25" rx="5" fill="url(#skinGrad)"/>
+
+          <!-- Head -->
+          <ellipse cx="100" cy="105" rx="42" ry="48" fill="url(#skinGrad)"/>
+
+          <!-- Hair -->
+          <ellipse cx="100" cy="68" rx="42" ry="22" fill="#1a1a1a"/>
+          <rect x="58" y="68" width="84" height="16" rx="4" fill="#1a1a1a"/>
+
+          <!-- Ear left -->
+          <ellipse cx="58" cy="108" rx="7" ry="10" fill="url(#skinGrad)"/>
+          <!-- Ear right -->
+          <ellipse cx="142" cy="108" rx="7" ry="10" fill="url(#skinGrad)"/>
+
+          <!-- Eyes -->
+          <ellipse cx="84" cy="105" rx="9" ry="7" fill="white"/>
+          <ellipse cx="116" cy="105" rx="9" ry="7" fill="white"/>
+          <ellipse cx="85" cy="106" rx="5" ry="5" fill="#2d1b69" class="eye-pupil"/>
+          <ellipse cx="117" cy="106" rx="5" ry="5" fill="#2d1b69" class="eye-pupil"/>
+          <!-- Eye shine -->
+          <circle cx="87" cy="104" r="2" fill="white"/>
+          <circle cx="119" cy="104" r="2" fill="white"/>
+
+          <!-- Eyebrows -->
+          <path d="M 73 94 Q 84 88 93 93" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M 107 93 Q 116 88 127 94" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+          <!-- Nose -->
+          <path d="M 97 110 Q 94 122 100 126 Q 106 122 103 110" stroke="#a0714f" stroke-width="1.5" fill="none"/>
+
+          <!-- Smile -->
+          <path d="M 87 132 Q 100 142 113 132" stroke="#7a4f3a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+          <!-- Small hiking icon on lapel -->
+          <circle cx="80" cy="163" r="6" fill="#6b21a8" opacity="0.8"/>
+          <text x="77" y="167" font-size="7" fill="white">🏔</text>
+
+          <!-- Laptop in hand (teaching) -->
+          <rect x="22" y="230" width="28" height="18" rx="3" fill="#374151"/>
+          <rect x="24" y="232" width="24" height="14" rx="2" fill="#1e3a5f"/>
+
+          <!-- Floating code snippets around avatar -->
+          <text x="8" y="90" font-size="8" fill="#8b5cf6" opacity="0.6" class="float-code">&lt;/&gt;</text>
+          <text x="175" y="80" font-size="8" fill="#7c3aed" opacity="0.6" class="float-code">{}</text>
+          <text x="2" y="170" font-size="7" fill="#6d28d9" opacity="0.5" class="float-code">01</text>
+          <text x="182" y="175" font-size="7" fill="#5b21b6" opacity="0.5" class="float-code">C#</text>
+        </svg>
+      </div>
+
+      <!-- Text Content -->
+      <div class="hero-text">
+        <p class="hero-greeting">Welcome to the portfolio of</p>
+        <h1 class="hero-name">Mr. Ikraam <span class="name-highlight">Sadek</span></h1>
+        <p class="hero-role">Junior Lecturer — Belgium Campus iTversity</p>
+        <div class="hero-typed-wrapper">
+          <span class="typed-prefix">He is a </span>
+          <span class="typed-text" id="typedHero"></span>
+          <span class="typed-cursor">|</span>
         </div>
-    </nav>
+        <div class="hero-badges">
+          <span class="badge">Problem Solver</span>
+          <span class="badge">Educator</span>
+          <span class="badge">Developer</span>
+          <span class="badge">Mentor</span>
+        </div>
+        <a href="#about" class="hero-cta">Discover More <span class="cta-arrow">↓</span></a>
+      </div>
+    </div>
 
-    <!-- Hero Section (Trevor's work) -->
-    <section id="hero" class="hero">
-        <h2>Welcome to the Portfolio</h2>
-        <p>This will be filled by the team</p>
-    </section>
+    <div class="scroll-indicator">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
 
-    <!-- About Section (Trevor's work) -->
-    <section id="about" class="about">
-        <h2>About</h2>
-        <p>About section coming soon...</p>
-    </section>
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about">
+    <div class="section-header reveal">
+      <span class="section-tag">// about_me</span>
+      <h2 class="section-title">About <span class="highlight">Ikraam</span></h2>
+      <div class="section-line"></div>
+    </div>
 
-    <!-- Skills Section (Kabelo's work) -->
-    <section id="skills" class="skills">
-        <h2>Skills</h2>
-        <p>Skills section coming soon...</p>
-    </section>
+    <div class="about-grid">
+      <!-- Profile Card -->
+      <div class="about-card reveal">
+        <div class="about-card-inner">
+          <div class="profile-icon">IS</div>
+          <h3 class="about-name">Mr. Ikraam Sadek</h3>
+          <p class="about-role">Junior Lecturer</p>
+          <p class="about-institution">Belgium Campus iTversity</p>
+          <div class="about-divider"></div>
+          <div class="about-qual">
+            <span class="qual-label">Qualification</span>
+            <span class="qual-value">Advanced Diploma in Application Development</span>
+            <span class="qual-institution">Rosebank College</span>
+          </div>
+        </div>
+      </div>
 
-    <!-- Projects Section (Renda's work) -->
-    <section id="projects" class="projects">
-        <h2>Projects</h2>
-        <p>Projects section coming soon...</p>
-    </section>
+      <!-- Bio Card -->
+      <div class="about-bio reveal">
+        <div class="about-typed-wrapper">
+          <span class="about-typed" id="typedAbout"></span>
+          <span class="typed-cursor">|</span>
+        </div>
+        <p class="about-description">
+          Mr. Ikraam Sadek is a passionate Junior Lecturer at Belgium Campus iTversity, dedicated to
+          nurturing the next generation of software developers. With a practical, student‑centred
+          approach, he creates engaging, discussion‑based learning environments where every student
+          is encouraged to think critically, participate actively, and grow into confident,
+          industry‑ready professionals.
+        </p>
+        <p class="about-description">
+          Teaching across both foundational and advanced levels, he covers a broad range of
+          disciplines — from first‑year Programming fundamentals to second‑year Web Programming,
+          Software Analysis, Testing, and Information Systems. Beyond the classroom, he channels the
+          same energy he finds on hiking trails into guiding students through complex technical
+          challenges.
+        </p>
 
-    <!-- Contact Section (Kabelo's work) -->
-    <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <p>Contact section coming soon...</p>
-    </section>
+        <!-- Personality Badges -->
+        <div class="personality-badges">
+          <div class="p-badge">
+            <span class="p-badge-icon">🎯</span>
+            <span>Problem Solver</span>
+          </div>
+          <div class="p-badge">
+            <span class="p-badge-icon">💬</span>
+            <span>Interactive Lecturer</span>
+          </div>
+          <div class="p-badge">
+            <span class="p-badge-icon">🤝</span>
+            <span>Helpful Mentor</span>
+          </div>
+          <div class="p-badge">
+            <span class="p-badge-icon">🏔️</span>
+            <span>Hiking Enthusiast</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="../JAVASCRIPT/script.js"></script>
+  <!-- ===== MODULES SECTION ===== -->
+  <section id="modules">
+    <div class="section-header reveal">
+      <span class="section-tag">// current_modules</span>
+      <h2 class="section-title">Modules <span class="highlight">Taught</span></h2>
+      <div class="section-line"></div>
+      <p class="section-subtitle">Hover over a card to explore the module</p>
+    </div>
+
+    <div class="modules-grid">
+
+      <div class="flip-card reveal">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <span class="module-code">PRL161</span>
+            <span class="module-name">Programming<br/>Preliminaries</span>
+            <span class="module-level">1st Year</span>
+          </div>
+          <div class="flip-card-back">
+            <h4>Programming Preliminaries</h4>
+            <p>Foundational concepts in programming logic, problem-solving strategies, and computational thinking to prepare students for formal coding modules.</p>
+            <span class="back-code">PRL161</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card reveal">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <span class="module-code">PRG181 / PRG171</span>
+            <span class="module-name">Programming<br/>1st Year</span>
+            <span class="module-level">1st Year</span>
+          </div>
+          <div class="flip-card-back">
+            <h4>Programming — 1st Year</h4>
+            <p>Introduction to structured programming paradigms, variables, control flow, functions, and basic data structures using industry-standard languages.</p>
+            <span class="back-code">PRG181 / PRG171</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card reveal">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <span class="module-code">WPR281 / WPR271</span>
+            <span class="module-name">Web<br/>Programming</span>
+            <span class="module-level">2nd Year</span>
+          </div>
+          <div class="flip-card-back">
+            <h4>Web Programming — 2nd Year</h4>
+            <p>Client-side and server-side web development, covering HTML5, CSS3, JavaScript, and dynamic web application principles for modern platforms.</p>
+            <span class="back-code">WPR281 / WPR271</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card reveal">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <span class="module-code">PRG261 / PRG262 / PRG2782</span>
+            <span class="module-name">Programming<br/>2nd Year</span>
+            <span class="module-level">2nd Year</span>
+          </div>
+          <div class="flip-card-back">
+            <h4>Programming — 2nd Year</h4>
+            <p>Advanced programming concepts including object-oriented design, data structures, algorithms, and real-world application development projects.</p>
+            <span class="back-code">PRG261 / PRG262 / PRG2782</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card reveal">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <span class="module-code">SWA261</span>
+            <span class="module-name">Software<br/>Analysis</span>
+            <span class="module-level">2nd Year</span>
+          </div>
+          <div class="flip-card-back">
+            <h4>Software Analysis</h4>
+            <p>Requirements engineering, systems thinking, UML modelling, and analytical frameworks used in professional software development environments.</p>
+            <span class="back-code">SWA261</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card reveal">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <span class="module-code">SWT261</span>
+            <span class="module-name">Software<br/>Testing 1</span>
+            <span class="module-level">2nd Year</span>
+          </div>
+          <div class="flip-card-back">
+            <h4>Software Testing 1</h4>
+            <p>Quality assurance methodologies, test planning, unit testing, integration testing, and industry best practices for delivering reliable software.</p>
+            <span class="back-code">SWT261</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card reveal">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <span class="module-code">INF2781</span>
+            <span class="module-name">Information<br/>Systems</span>
+            <span class="module-level">2nd Year</span>
+          </div>
+          <div class="flip-card-back">
+            <h4>Information Systems — 2nd Year</h4>
+            <p>Study of information technology within organisational contexts, database concepts, system design, and the strategic role of IT in business.</p>
+            <span class="back-code">INF2781</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== ACHIEVEMENTS & SKILLS SECTION ===== -->
+  <section id="achievements">
+    <div class="section-header reveal">
+      <span class="section-tag">// skills_&_strengths</span>
+      <h2 class="section-title">Skills &amp; <span class="highlight">Strengths</span></h2>
+      <div class="section-line"></div>
+      <p class="section-subtitle">Click or hover to reveal each strength</p>
+    </div>
+
+    <div class="achievements-grid">
+
+      <div class="ach-flip-card reveal">
+        <div class="ach-flip-inner">
+          <div class="ach-front">
+            <div class="ach-icon">🧩</div>
+            <h4>Problem Solving</h4>
+          </div>
+          <div class="ach-back">
+            <h4>Problem Solving</h4>
+            <p>Identifies viable solutions to complex challenges efficiently. Known among students for breaking down difficult concepts into clear, actionable steps.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ach-flip-card reveal">
+        <div class="ach-flip-inner">
+          <div class="ach-front">
+            <div class="ach-icon">🌐</div>
+            <h4>Web Development</h4>
+          </div>
+          <div class="ach-back">
+            <h4>Web Development</h4>
+            <p>Proficient in HTML5, CSS3, and front-end development principles, with hands-on experience teaching modern web programming concepts to students.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ach-flip-card reveal">
+        <div class="ach-flip-inner">
+          <div class="ach-front">
+            <div class="ach-icon">💻</div>
+            <h4>C# &amp; Programming</h4>
+          </div>
+          <div class="ach-back">
+            <h4>C# &amp; Programming</h4>
+            <p>Extensive background in C# and structured programming, guiding students from foundational syntax through to advanced application development.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ach-flip-card reveal">
+        <div class="ach-flip-inner">
+          <div class="ach-front">
+            <div class="ach-icon">🗄️</div>
+            <h4>Databases &amp; SQL</h4>
+          </div>
+          <div class="ach-back">
+            <h4>Databases &amp; SQL</h4>
+            <p>Working knowledge of Microsoft Access and Microsoft SQL Server, incorporating database concepts within Information Systems and Programming modules.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ach-flip-card reveal">
+        <div class="ach-flip-inner">
+          <div class="ach-front">
+            <div class="ach-icon">🤝</div>
+            <h4>Helpfulness</h4>
+          </div>
+          <div class="ach-back">
+            <h4>Helpfulness — Superpower</h4>
+            <p>Consistently available to support students in overcoming obstacles. His willingness to help is widely regarded as his greatest professional strength.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ach-flip-card reveal">
+        <div class="ach-flip-inner">
+          <div class="ach-front">
+            <div class="ach-icon">💬</div>
+            <h4>Communication</h4>
+          </div>
+          <div class="ach-back">
+            <h4>Communication</h4>
+            <p>Encourages classroom discussions, actively listens, and communicates complex technical ideas clearly — fostering a two-way, interactive learning experience.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ach-flip-card reveal">
+        <div class="ach-flip-inner">
+          <div class="ach-front">
+            <div class="ach-icon">👥</div>
+            <h4>Leadership</h4>
+          </div>
+          <div class="ach-back">
+            <h4>Leadership</h4>
+            <p>Guides students with confidence across multiple modules simultaneously, balancing academic responsibilities while maintaining high-quality teaching standards.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ach-flip-card reveal">
+        <div class="ach-flip-inner">
+          <div class="ach-front">
+            <div class="ach-icon">📋</div>
+            <h4>Office 365</h4>
+          </div>
+          <div class="ach-back">
+            <h4>Office 365 Proficiency</h4>
+            <p>Skilled in the Microsoft 365 suite, supporting efficient communication, documentation, and collaborative workflows in an academic environment.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== QUOTE / ADVICE SECTION ===== -->
+  <section id="quote">
+    <div class="quote-container reveal">
+      <div class="quote-icon">"</div>
+      <blockquote class="quote-text">
+        After you receive your marks and feedback for a practical project, apply that feedback,
+        improve your work, and build up a portfolio of all your projects on GitHub. This shows
+        companies that you know how to do things <em>practically</em> — not just theoretically.
+      </blockquote>
+      <div class="quote-author">
+        <span class="q-dash">—</span>
+        <span class="q-name">Mr. Ikraam Sadek</span>
+        <span class="q-role">Junior Lecturer, Belgium Campus iTversity</span>
+      </div>
+
+      <!-- Teaching Philosophy -->
+      <div class="philosophy-card reveal">
+        <h3>Teaching Philosophy</h3>
+        <p>
+          "I try to ensure that my classes are <strong>engaging and interactive</strong>.
+          I feel that the best way to learn is through discussions with a class,
+          rather than a one-sided lecture."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FUN FACTS SECTION ===== -->
+  <section id="fun-facts">
+    <div class="section-header reveal">
+      <span class="section-tag">// fun_facts.exe</span>
+      <h2 class="section-title">Fun <span class="highlight">Facts</span></h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="facts-grid">
+
+      <div class="fact-card reveal" data-delay="0">
+        <div class="fact-number">01</div>
+        <div class="fact-icon">🏔️</div>
+        <h4>Hiking Enthusiast</h4>
+        <p>Mr. Sadek finds real comfort in the mountains. Even though life keeps him busy, he
+           loves hiking and the sense of peace that comes from being out in nature.</p>
+      </div>
+
+      <div class="fact-card reveal" data-delay="100">
+        <div class="fact-number">02</div>
+        <div class="fact-icon">⚡</div>
+        <h4>Superpower: Helpfulness</h4>
+        <p>His greatest professional strength is being genuinely helpful. Students know they
+           can always count on him to guide them through difficult challenges, big or small.</p>
+      </div>
+
+      <div class="fact-card reveal" data-delay="200">
+        <div class="fact-number">03</div>
+        <div class="fact-icon">🎨</div>
+        <h4>Dark Aesthetics</h4>
+        <p>He has a clear preference for darker colour palettes — black, blue, purple, maroon,
+           and grey — reflecting his sophisticated and technical professional identity.</p>
+      </div>
+
+      <div class="fact-card reveal" data-delay="300">
+        <div class="fact-number">04</div>
+        <div class="fact-icon">📚</div>
+        <h4>7 Modules at Once</h4>
+        <p>This year alone, Mr. Sadek teaches seven distinct modules spanning two academic
+           years — a testament to his dedication, versatility, and commitment to education.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== CONTACT / FOOTER ===== -->
+  <footer id="contact">
+    <div class="footer-glow"></div>
+    <div class="footer-content">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">IS<span class="logo-dot">.</span></div>
+          <p>Mr. Ikraam Sadek — Junior Lecturer</p>
+          <p>Belgium Campus iTversity, Pretoria</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#modules">Modules</a></li>
+            <li><a href="#achievements">Skills</a></li>
+            <li><a href="#quote">Philosophy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Connect</h4>
+          <p>📧 sadek.i@belgiumcampus.ac.za</p>
+          <p>🏫 Belgium Campus iTversity</p>
+          <p>📍 Pretoria, South Africa</p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-btn" aria-label="GitHub">GH</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-line"></div>
+        <div class="footer-bottom-text">
+          <p>© 2026 Mr. Ikraam Sadek Portfolio — Built by Group 3 | INL261 Project</p>
+          <p class="footer-tech">Powered by Claude AI &amp; GitHub Pages</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
